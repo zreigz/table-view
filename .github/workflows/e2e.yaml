@@ -1,0 +1,17 @@
+name: E2E
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  create-cluster:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - run: |
+          GOBIN="$HOME"/bin make build-cli
+          chmod 755 main.o
+          mv main.o /usr/local/bin/test
+          /usr/local/bin/test
+
