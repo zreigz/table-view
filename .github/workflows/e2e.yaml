@@ -17,7 +17,6 @@ jobs:
           chmod 755 main.o
           mv main.o /usr/local/bin/test
           sudo apt-get update
-          sudo apt-get install -y xvfb
-          export DISPLAY=:99          
-          sudo xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & /usr/local/bin/test
+          sudo apt-get install -y xorg openbox
+          /usr/local/bin/test
 
