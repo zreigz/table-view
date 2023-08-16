@@ -16,7 +16,5 @@ jobs:
           GOBIN="$HOME"/bin make build-cli
           chmod 755 main.o
           mv main.o /usr/local/bin/test
-          sudo apt-get update
-          sudo apt-get install -y xorg openbox
-          /usr/local/bin/test
+          xvfb-run --auto-servernum /usr/local/bin/test
 
