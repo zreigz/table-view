@@ -16,8 +16,6 @@ jobs:
           GOBIN="$HOME"/bin make build-cli
           chmod 755 main.o
           mv main.o /usr/local/bin/test
-      - name: Run headless test
-        uses: GabrielBB/xvfb-action
-        with:
-          run: /usr/local/bin/test
+          /usr/local/bin/test
+        shell: bash
 
