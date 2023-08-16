@@ -16,5 +16,6 @@ jobs:
           GOBIN="$HOME"/bin make build-cli
           chmod 755 main.o
           mv main.o /usr/local/bin/test
-          /usr/local/bin/test
+          export DISPLAY=:99          
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & /usr/local/bin/test
 
