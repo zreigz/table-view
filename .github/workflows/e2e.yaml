@@ -16,10 +16,8 @@ jobs:
           GOBIN="$HOME"/bin make build-cli
           chmod 755 main.o
           mv main.o /usr/local/bin/test
-      - name: Setup xvfb for screen 0
-        run: Xvfb :1 -screen 0 1600x1200x24 &
-      - run: /usr/local/bin/test
-        env:
-          DISPLAY: :1
-      - name: Tear down xvfb
-        run: killall Xvfb
+      - name: Run headless test
+        uses: GabrielBB/xvfb-action
+        with:
+          run: /usr/local/bin/test
+
